@@ -30,7 +30,3 @@ yarn-error.log*
 # editor
 .vscode/
 .idea/
-
-# agent scratch files, regenerated locally by next dev
-AGENTS.md
-CLAUDE.md
