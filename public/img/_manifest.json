@@ -1,0 +1,28 @@
+{
+  "source": "Pexels (Pexels License - free to use, no attribution required)",
+  "note": "Placeholder photography for the pitch demo. Replace with client photography before any public use.",
+  "photos": {
+    "hero-living": "https://www.pexels.com/photo/27164969/",
+    "room-living": "https://www.pexels.com/photo/12277020/",
+    "room-dining": "https://www.pexels.com/photo/27164978/",
+    "room-bedroom": "https://www.pexels.com/photo/6480198/",
+    "room-storage": "https://www.pexels.com/photo/8251251/",
+    "room-workspace": "https://www.pexels.com/photo/8092461/",
+    "room-decor": "https://www.pexels.com/photo/20582003/",
+    "p-armchair": "https://www.pexels.com/photo/22431344/",
+    "p-sofa": "https://www.pexels.com/photo/4577383/",
+    "p-dining-table": "https://www.pexels.com/photo/6523276/",
+    "p-sideboard": "https://www.pexels.com/photo/11112749/",
+    "p-cabinet": "https://www.pexels.com/photo/7195588/",
+    "p-lounge-chair": "https://www.pexels.com/photo/18258470/",
+    "p-desk": "https://www.pexels.com/photo/36123565/",
+    "p-ottoman": "https://www.pexels.com/photo/27294927/",
+    "mat-oak": "https://www.pexels.com/photo/131639/",
+    "mat-walnut": "https://www.pexels.com/photo/8337527/",
+    "mat-linen": "https://www.pexels.com/photo/7533973/",
+    "mat-weave": "https://www.pexels.com/photo/29610590/",
+    "showroom": "https://www.pexels.com/photo/5790376/",
+    "experience": "https://www.pexels.com/photo/5486148/",
+    "lifestyle": "https://www.pexels.com/photo/31145676/"
+  }
+}

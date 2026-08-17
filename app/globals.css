@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/*
+  Palette is taken from the client's own logo, not invented: a saturated
+  yellow field, royal-blue letterforms, red tagline. Roles are locked so
+  the three never compete:
+
+    blue   structural brand      header, nav, primary buttons, showroom
+    yellow energy field          hero card, offer panel, editorial panel
+    red    commercial signal ONLY discount badges and cut prices
+
+  Neutrals carry a slight blue bias so they sit under the brand blue
+  rather than fighting it.
+
+  Shape rule: radius 0 on everything, buttons included, no exception.
+
+  The IKEA reference reserves a full pill for buttons, and that was the
+  rule here at first. It was wrong for this brand. The logo has no round
+  form anywhere in it, so a pill floating inside a square yellow field
+  read as a mistake rather than as a system. Buttons signal themselves
+  with a solid fill and bold label instead.
+
+  Single theme, locked light. Both references are light-only, the brand
+  ground is a high-chroma yellow that has no honest dark equivalent, and
+  the demo exists to be projected in a pitch room.
+*/
+@theme {
+  --color-ink: #15161f;
+  --color-ink-2: #4b4d5c;
+  --color-muted: #7a7c8c;
+  --color-line: #e1e2e9;
+  --color-line-2: #c9cbd6;
+  --color-shell: #f2f3f7;
+  --color-paper: #ffffff;
+
+  --color-brand: #2e3192;
+  --color-brand-dark: #23265f;
+  --color-brand-tint: #e8e9f5;
+
+  --color-yellow: #ffe100;
+  --color-yellow-dark: #e5ca00;
+  --color-yellow-tint: #fff7cc;
+
+  --color-sale: #ed1c24;
+  --color-star: #e3b400;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --spacing-gutter: clamp(1rem, 4vw, 3.5rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+.rail > * {
+  scroll-snap-align: start;
+  flex: none;
+}
+
+@utility shell-pad {
+  padding-inline: var(--spacing-gutter);
+}
+
+/*
+  Any element given overflow-x also gets a computed overflow-y of auto,
+  so a single stray pixel makes a horizontal strip sprout a vertical
+  scrollbar. Pair this with every overflow-x-auto that is not meant to
+  scroll vertically.
+*/
+@utility no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@utility was-price {
+  color: var(--color-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+/* Hero entrance. MOTION_INTENSITY 4: a single load cascade, no loops. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .rise {
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
