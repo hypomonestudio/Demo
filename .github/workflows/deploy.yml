@@ -31,7 +31,18 @@ jobs:
 
       - run: npm ci
 
+      # The site currently lives at hypomonestudio.github.io/Demo/, not at
+      # the root of a domain, so every asset URL has to carry that prefix.
+      # Without it the HTML loads and asks for /_next/... which 404s, and
+      # the page renders as unstyled text.
+      #
+      # Delete this env block the moment hypomone-studio.site resolves and
+      # the custom domain is set in Settings, because then the site is
+      # served from the root and the prefix becomes wrong in the other
+      # direction.
       - run: npm run build
+        env:
+          PAGES_BASE_PATH: /Demo
 
       - uses: actions/configure-pages@v5
 

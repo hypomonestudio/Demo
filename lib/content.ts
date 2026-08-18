@@ -10,6 +10,13 @@
  * Strip or replace before this goes anywhere public.
  * ─────────────────────────────────────────────────────────────────────
  */
+/*
+ * Photography lives in public/ and is referenced by string, which
+ * basePath does not rewrite. Prefixing here keeps every image path
+ * correct whether the site is served from a domain root or from a
+ * project sub-path.
+ */
+const img = (p: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${p}`;
 
 /*
  * The business name includes the word "Furniture", so it is always
@@ -64,33 +71,33 @@ export const slides: Slide[] = [
     title: "Ruang yang tenang, dipakai setiap hari",
     body: "Rangka kayu solid dan dudukan yang tetap nyaman setelah tahun keempat.",
     cta: "Lihat koleksi",
-    image: "/img/hero-living.jpg",
+    image: img("/img/hero-living.jpg"),
   },
   {
     eyebrow: "Koleksi Kamar Tidur",
     title: "Pagi dimulai dari kamar yang rapi",
     body: "Penyimpanan yang cukup, sehingga yang berarti selalu punya tempat.",
     cta: "Jelajahi kamar tidur",
-    image: "/img/room-bedroom.jpg",
+    image: img("/img/room-bedroom.jpg"),
   },
   {
     eyebrow: "Koleksi Ruang Makan",
     title: "Meja panjang untuk kumpul yang lama",
     body: "Permukaan kayu yang boleh tergores. Memang dibuat untuk dipakai.",
     cta: "Lihat meja makan",
-    image: "/img/room-dining.jpg",
+    image: img("/img/room-dining.jpg"),
   },
 ];
 
 export const categories = [
-  { label: "Sofa", image: "/img/p-sofa.jpg" },
-  { label: "Kursi Berlengan", image: "/img/p-armchair.jpg" },
-  { label: "Meja Makan", image: "/img/p-dining-table.jpg" },
-  { label: "Lemari Pajang", image: "/img/p-cabinet.jpg" },
-  { label: "Meja Kerja", image: "/img/p-desk.jpg" },
-  { label: "Bufet", image: "/img/p-sideboard.jpg" },
-  { label: "Ottoman", image: "/img/p-ottoman.jpg" },
-  { label: "Kursi Santai", image: "/img/p-lounge-chair.jpg" },
+  { label: "Sofa", image: img("/img/p-sofa.jpg") },
+  { label: "Kursi Berlengan", image: img("/img/p-armchair.jpg") },
+  { label: "Meja Makan", image: img("/img/p-dining-table.jpg") },
+  { label: "Lemari Pajang", image: img("/img/p-cabinet.jpg") },
+  { label: "Meja Kerja", image: img("/img/p-desk.jpg") },
+  { label: "Bufet", image: img("/img/p-sideboard.jpg") },
+  { label: "Ottoman", image: img("/img/p-ottoman.jpg") },
+  { label: "Kursi Santai", image: img("/img/p-lounge-chair.jpg") },
 ];
 
 export const services = [
@@ -140,7 +147,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 6_299_000,
         rating: 4.8,
         reviews: 214,
-        image: "/img/p-sofa.jpg",
+        image: img("/img/p-sofa.jpg"),
         tag: "Terlaris",
         variants: "3 Var Warna",
       },
@@ -151,7 +158,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 2_199_000,
         rating: 4.9,
         reviews: 132,
-        image: "/img/p-armchair.jpg",
+        image: img("/img/p-armchair.jpg"),
         variants: "4 Var Warna",
       },
       {
@@ -161,7 +168,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 3_499_000,
         rating: 4.7,
         reviews: 88,
-        image: "/img/p-sideboard.jpg",
+        image: img("/img/p-sideboard.jpg"),
       },
       {
         name: "Kirana Meja Makan 6 Kursi",
@@ -170,7 +177,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 8_750_000,
         rating: 4.8,
         reviews: 61,
-        image: "/img/p-dining-table.jpg",
+        image: img("/img/p-dining-table.jpg"),
         tag: "Set Lengkap",
       },
       {
@@ -180,7 +187,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 4_575_000,
         rating: 4.6,
         reviews: 47,
-        image: "/img/p-cabinet.jpg",
+        image: img("/img/p-cabinet.jpg"),
       },
     ],
   },
@@ -194,7 +201,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 2_890_000,
         rating: 5,
         reviews: 12,
-        image: "/img/p-desk.jpg",
+        image: img("/img/p-desk.jpg"),
         tag: "Baru",
       },
       {
@@ -204,7 +211,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 1_150_000,
         rating: 4.9,
         reviews: 9,
-        image: "/img/p-ottoman.jpg",
+        image: img("/img/p-ottoman.jpg"),
         tag: "Baru",
       },
       {
@@ -214,7 +221,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 3_950_000,
         rating: 4.8,
         reviews: 17,
-        image: "/img/p-lounge-chair.jpg",
+        image: img("/img/p-lounge-chair.jpg"),
         tag: "Baru",
         variants: "2 Var Warna",
       },
@@ -225,7 +232,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 4_799_000,
         rating: 4.7,
         reviews: 23,
-        image: "/img/p-sofa.jpg",
+        image: img("/img/p-sofa.jpg"),
         tag: "Baru",
       },
       {
@@ -235,7 +242,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 3_990_000,
         rating: 4.9,
         reviews: 8,
-        image: "/img/p-sideboard.jpg",
+        image: img("/img/p-sideboard.jpg"),
         tag: "Baru",
       },
     ],
@@ -250,7 +257,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 1_899_000,
         rating: 4.9,
         reviews: 132,
-        image: "/img/p-armchair.jpg",
+        image: img("/img/p-armchair.jpg"),
       },
       {
         name: "Kirana Meja Makan 4 Kursi",
@@ -259,7 +266,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 5_980_000,
         rating: 4.6,
         reviews: 74,
-        image: "/img/p-dining-table.jpg",
+        image: img("/img/p-dining-table.jpg"),
       },
       {
         name: "Wangsa Meja Kerja",
@@ -268,7 +275,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 1_734_000,
         rating: 4.8,
         reviews: 12,
-        image: "/img/p-desk.jpg",
+        image: img("/img/p-desk.jpg"),
         tag: "Unit Pajangan",
       },
       {
@@ -278,7 +285,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 3_660_000,
         rating: 4.6,
         reviews: 47,
-        image: "/img/p-cabinet.jpg",
+        image: img("/img/p-cabinet.jpg"),
       },
       {
         name: "Tirta Ottoman Anyam",
@@ -287,7 +294,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 799_000,
         rating: 4.9,
         reviews: 9,
-        image: "/img/p-ottoman.jpg",
+        image: img("/img/p-ottoman.jpg"),
       },
     ],
   },
@@ -301,7 +308,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 4_799_000,
         rating: 4.7,
         reviews: 23,
-        image: "/img/p-sofa.jpg",
+        image: img("/img/p-sofa.jpg"),
       },
       {
         name: "Tirta Ottoman Anyam",
@@ -310,7 +317,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 1_150_000,
         rating: 4.9,
         reviews: 9,
-        image: "/img/p-ottoman.jpg",
+        image: img("/img/p-ottoman.jpg"),
       },
       {
         name: "Wangsa Meja Kerja Ringkas",
@@ -319,7 +326,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 1_990_000,
         rating: 4.8,
         reviews: 31,
-        image: "/img/p-desk.jpg",
+        image: img("/img/p-desk.jpg"),
       },
       {
         name: "Larasati Bufet Rendah",
@@ -328,7 +335,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 3_990_000,
         rating: 4.9,
         reviews: 8,
-        image: "/img/p-sideboard.jpg",
+        image: img("/img/p-sideboard.jpg"),
       },
       {
         name: "Prana Kursi Santai",
@@ -337,7 +344,7 @@ export const offerTabs: { label: string; items: Product[] }[] = [
         now: 3_160_000,
         rating: 4.8,
         reviews: 17,
-        image: "/img/p-lounge-chair.jpg",
+        image: img("/img/p-lounge-chair.jpg"),
       },
     ],
   },
@@ -349,7 +356,7 @@ export const editorial = {
   body:
     "Bawa ukuran ruangan Anda ke showroom. Tim kami menyusun tata letak, memilihkan material, dan menghitung kebutuhan dalam satu kali kunjungan.",
   cta: "Buat janji temu",
-  image: "/img/experience.jpg",
+  image: img("/img/experience.jpg"),
 };
 
 export const priceDrop = {
@@ -360,57 +367,57 @@ export const priceDrop = {
     desc: "Sandaran tinggi, kain bouclé, rangka kayu solid",
     was: 3_950_000,
     now: 2_765_000,
-    image: "/img/p-lounge-chair.jpg",
+    image: img("/img/p-lounge-chair.jpg"),
   },
   side: [
     {
       name: "Tirta Ottoman Anyam",
       was: 1_150_000,
       now: 799_000,
-      image: "/img/p-ottoman.jpg",
+      image: img("/img/p-ottoman.jpg"),
     },
     {
       name: "Wangsa Meja Kerja",
       was: 2_890_000,
       now: 1_734_000,
-      image: "/img/p-desk.jpg",
+      image: img("/img/p-desk.jpg"),
     },
   ],
 };
 
 export const rooms = [
-  { label: "Ruang Tamu", count: "218 produk", image: "/img/room-living.jpg" },
-  { label: "Kamar Tidur", count: "164 produk", image: "/img/room-bedroom.jpg" },
-  { label: "Ruang Makan", count: "132 produk", image: "/img/room-dining.jpg" },
-  { label: "Penyimpanan", count: "97 produk", image: "/img/room-storage.jpg" },
-  { label: "Ruang Kerja", count: "88 produk", image: "/img/room-workspace.jpg" },
-  { label: "Dekorasi", count: "245 produk", image: "/img/room-decor.jpg" },
+  { label: "Ruang Tamu", count: "218 produk", image: img("/img/room-living.jpg") },
+  { label: "Kamar Tidur", count: "164 produk", image: img("/img/room-bedroom.jpg") },
+  { label: "Ruang Makan", count: "132 produk", image: img("/img/room-dining.jpg") },
+  { label: "Penyimpanan", count: "97 produk", image: img("/img/room-storage.jpg") },
+  { label: "Ruang Kerja", count: "88 produk", image: img("/img/room-workspace.jpg") },
+  { label: "Dekorasi", count: "245 produk", image: img("/img/room-decor.jpg") },
 ];
 
 export const styles = [
   {
     label: "Japandi Hangat",
     body: "Kayu terang, garis lurus, dan tekstil bertekstur kasar.",
-    image: "/img/room-living.jpg",
-    picks: ["/img/p-sofa.jpg", "/img/p-ottoman.jpg", "/img/p-desk.jpg", "/img/mat-oak.jpg"],
+    image: img("/img/room-living.jpg"),
+    picks: [img("/img/p-sofa.jpg"), img("/img/p-ottoman.jpg"), img("/img/p-desk.jpg"), img("/img/mat-oak.jpg")],
   },
   {
     label: "Modern Minimalis",
     body: "Palet netral, permukaan bersih, tanpa ornamen.",
-    image: "/img/room-workspace.jpg",
-    picks: ["/img/p-desk.jpg", "/img/p-cabinet.jpg", "/img/p-lounge-chair.jpg", "/img/mat-linen.jpg"],
+    image: img("/img/room-workspace.jpg"),
+    picks: [img("/img/p-desk.jpg"), img("/img/p-cabinet.jpg"), img("/img/p-lounge-chair.jpg"), img("/img/mat-linen.jpg")],
   },
   {
     label: "Kayu Gelap",
     body: "Jati tua, kuningan, dan kain bertone dalam.",
-    image: "/img/room-dining.jpg",
-    picks: ["/img/p-dining-table.jpg", "/img/p-sideboard.jpg", "/img/p-armchair.jpg", "/img/mat-walnut.jpg"],
+    image: img("/img/room-dining.jpg"),
+    picks: [img("/img/p-dining-table.jpg"), img("/img/p-sideboard.jpg"), img("/img/p-armchair.jpg"), img("/img/mat-walnut.jpg")],
   },
   {
     label: "Tenang & Terang",
     body: "Putih tulang, linen, dan cahaya yang dibiarkan masuk.",
-    image: "/img/room-bedroom.jpg",
-    picks: ["/img/p-armchair.jpg", "/img/p-sofa.jpg", "/img/p-ottoman.jpg", "/img/mat-weave.jpg"],
+    image: img("/img/room-bedroom.jpg"),
+    picks: [img("/img/p-armchair.jpg"), img("/img/p-sofa.jpg"), img("/img/p-ottoman.jpg"), img("/img/mat-weave.jpg")],
   },
 ];
 
@@ -418,22 +425,22 @@ export const materials = [
   {
     label: "Jati Solid",
     body: "Dikeringkan oven hingga kadar air 12%.",
-    image: "/img/mat-oak.jpg",
+    image: img("/img/mat-oak.jpg"),
   },
   {
     label: "Walnut",
     body: "Serat gelap, difinis minyak alami.",
-    image: "/img/mat-walnut.jpg",
+    image: img("/img/mat-walnut.jpg"),
   },
   {
     label: "Linen",
     body: "Tenun rapat, tahan gesek harian.",
-    image: "/img/mat-linen.jpg",
+    image: img("/img/mat-linen.jpg"),
   },
   {
     label: "Bouclé",
     body: "Bertekstur, lembut, mudah dibersihkan.",
-    image: "/img/mat-weave.jpg",
+    image: img("/img/mat-weave.jpg"),
   },
 ];
 
@@ -442,7 +449,7 @@ export const showroom = {
   title: "Duduki dulu sebelum memutuskan",
   body:
     "Semua koleksi dipajang lengkap, sehingga Anda bisa menguji dudukan, membuka laci, dan melihat serat kayunya langsung.",
-  image: "/img/showroom.jpg",
+  image: img("/img/showroom.jpg"),
   // NEEDS CLIENT DATA - placeholders stay visible on purpose.
   details: [
     { label: "Alamat", value: "[alamat showroom]" },
@@ -457,7 +464,7 @@ export const footerColumns = [
     links: ["Pusat Bantuan", "Cara Pemesanan", "Pengiriman & Perakitan", "Pengembalian", "Garansi"],
   },
   {
-    title: "Tentang Diana Eva",
+    title: "Tentang Diana Eva Furniture",
     links: ["Profil Perusahaan", "Showroom", "Karier", "Blog", "Katalog Digital"],
   },
   {
