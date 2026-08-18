@@ -45,7 +45,7 @@ export function SiteHeader() {
           </button>
 
           <a href="#" className="flex shrink-0 items-center">
-            <BrandMark className="h-9 w-[128px] lg:h-11 lg:w-[160px]" />
+            <BrandMark className="[--u:8px] lg:[--u:10.5px]" />
           </a>
 
           <form
@@ -110,7 +110,7 @@ export function SiteHeader() {
           <div className="absolute inset-0 bg-ink/50" onClick={() => setOpen(false)} />
           <div className="absolute inset-y-0 left-0 flex w-[82%] max-w-sm flex-col bg-paper">
             <div className="flex h-16 items-center justify-between border-b border-line px-5">
-              <BrandMark className="h-9 w-[128px]" />
+              <BrandMark className="[--u:8px]" />
               <button onClick={() => setOpen(false)} className="p-2" aria-label="Tutup menu">
                 <Close size={24} weight="bold" />
               </button>

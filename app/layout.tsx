@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { brand } from "@/lib/content";
 import "./globals.css";
 
 /*
@@ -15,7 +16,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Diana Eva Furniture - Furnitur untuk rumah yang ditinggali",
+  title: `${brand.name} - ${brand.tagline}`,
   description:
     "Demo pitch Hypomone Studio. Koleksi sofa, kursi, meja makan, dan penyimpanan kayu solid.",
 };

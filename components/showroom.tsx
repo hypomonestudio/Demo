@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { showroom } from "@/lib/content";
+import { brand, showroom } from "@/lib/content";
 
 /*
  * The one full-brand-blue field on the page. Address, hours and phone
@@ -14,7 +14,7 @@ export function Showroom() {
         <div className="relative aspect-3/2 overflow-hidden">
           <Image
             src={showroom.image}
-            alt="Showroom Diana Eva"
+            alt={`Showroom ${brand.name}`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"

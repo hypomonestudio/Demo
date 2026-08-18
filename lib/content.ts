@@ -11,10 +11,25 @@
  * ─────────────────────────────────────────────────────────────────────
  */
 
+/*
+ * The business name includes the word "Furniture", so it is always
+ * written in full. The strapline is lifted from the client's own logo
+ * artwork rather than invented.
+ *
+ * The wordmark itself is drawn in components/brand-mark.tsx, split into
+ * the three lines the logo uses.
+ */
 export const brand = {
-  name: "Diana Eva",
-  mark: "DIANA EVA",
-  tagline: "Furnitur untuk rumah yang ditinggali",
+  name: "Diana Eva Furniture",
+  mark: "DIANA EVA FURNITURE",
+  tagline: "Supermarket Spring Bed & Furniture",
+  strapline: "Supermarket Spring Bed & Furniture",
+  /** Each line is [large initial, remainder]. */
+  wordmark: [
+    ["D", "IANA"],
+    ["E", "VA"],
+    ["F", "URNITURE"],
+  ] as const,
 };
 
 export const utilityLinks = [

@@ -14,7 +14,7 @@ export function SiteFooter() {
       <div className="shell-pad mx-auto max-w-[1600px] py-12">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_2fr]">
           <div>
-            <BrandMark className="h-11 w-[160px]" />
+            <BrandMark className="[--u:13px]" />
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-ink-2">{brand.tagline}</p>
 
             <Newsletter />
